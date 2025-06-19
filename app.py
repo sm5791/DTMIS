@@ -205,15 +205,19 @@ I_num = st.radio('which types',['I_0', 'I_1', 'I_2'])
 S_num = st.radio('which types',['S_0', 'S_1'])
 lam = st.slider(label='lam', min_value=0, max_value=10, value=5)
 
-f1 = kenban_list[number_f1]
-f2 = kenban_list[number_f2]
-f3 = kenban_list[number_f3]
 
-Da = D(f1,f2,f3,v1,v2,v3,N,a,b,c,d,g)
-Ta = TM(f1,f2,f3,v1,v2,v3,N,e,h,g)[0]
-Ma = TM(f1,f2,f3,v1,v2,v3,N,e,h,g)[1]
-Ia = I_num(Da,Ta,lam)
-Sa = S_num(Da,Ta,Ma)
 
-st.text(Da,Ta,Ma,Ia,Sa)
+
+if st.button("データを表示"):
+    f1 = kenban_list[number_f1]
+    f2 = kenban_list[number_f2]
+    f3 = kenban_list[number_f3]
+
+    Da = D(f1,f2,f3,v1,v2,v3,N,a,b,c,d,g)
+    Ta = TM(f1,f2,f3,v1,v2,v3,N,e,h,g)[0]
+    Ma = TM(f1,f2,f3,v1,v2,v3,N,e,h,g)[1]
+    Ia = I_num(Da,Ta,lam)
+    Sa = S_num(Da,Ta,Ma)
+
+    st.text(Da,Ta,Ma,Ia,Sa)
 
