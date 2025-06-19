@@ -219,7 +219,7 @@ I_num = I_function_map[I_num_name]
 S_num = S_function_map[S_num_name]
 
 
-if st.button("データを表示"):
+if st.button("DTMISを計算"):
     f1 = kenban_list[number_f1]
     f2 = kenban_list[number_f2]
     f3 = kenban_list[number_f3]
