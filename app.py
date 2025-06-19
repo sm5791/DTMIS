@@ -230,13 +230,12 @@ if st.button("DTMISを計算"):
     Ia = I_num(Da,Ta,lam)
     Sa = S_num(Da,Ta,Ma)
 
-    st.write(f"D: {Da}, T: {Ta}, M: {Ma}, I: {Ia}, S: {Sa}")
     st.markdown(f"""
     ###  計算結果
     - **D（不協和度）**: `{Da:.4f}`
     - **T（緊張度）**: `{Ta:.4f}`
     - **M（モダリティ）**: `{Ma:.4f}`
-    - **I（統合値）**: `{Ia:.4f}`
-    - **S（シンメトリ）**: `{Sa:.4f}`
+    - **I（不安定度）**: `{Ia:.4f}`
+    - **S（安定度）**: `{Sa:.4f}`
     """)
 
