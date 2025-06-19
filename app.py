@@ -24,3 +24,13 @@ st.table(df)
 button_value_A = st.button('Push me!', key=1)
 
 button_value_B = st.button('Push me!', key='second')
+
+flgCheck_A = st.checkbox('Checkbox A')
+flgCheck_B = st.checkbox('Checkbox B')
+
+# チェックボックスのイベントは並列して発生する可能性があるため、
+# elif を使用すろとイベントのキャッチ漏れに繋がる。
+if flgCheck_A:
+    st.text('Checkbox A has checked')
+if flgCheck_B:
+    st.text('Checkbox B has checked')
