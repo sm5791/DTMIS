@@ -1,15 +1,7 @@
 import streamlit as st
 import numpy as np
 
- #定数
-a=0.7
-b=1.4
-c=4.0
-d=1.33
-e=0.6
-h=1.56
-g=0.88
-N = 5   #倍音数
+
 
 #ピアノの鍵盤に対応した周波数のリストを作成
 fa = 27.5
@@ -216,6 +208,15 @@ lam =  st.slider('小数を選んでください', 0.0, 10.0, 0.5, 0.1)
 I_num = I_function_map[I_num_name]
 S_num = S_function_map[S_num_name]
 
+ #定数
+a=0.7
+b=1.4
+c=4.0
+d=1.33
+e=0.6
+h=1.56
+g=0.88
+N = 5   #倍音数
 
 if st.button("DTMISを計算"):
     f1 = kenban_list[number_f1]
