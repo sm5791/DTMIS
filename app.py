@@ -191,71 +191,44 @@ def export_csv(hyo, name):
 
 
 ########スタート#########
-st.title("DTMIS計算サイトここに爆誕")
+st.set_page_config(page_title="DTMIS計算", layout="centered")
+st.title("🎼 DTMIS計算サイトここに爆誕")
 
-number_f1 = st.number_input('f1 number', 0)
-number_f2 = st.number_input('f2 number', 0)
-number_f3 = st.number_input('f3 number', 0)
+number_f1 = st.number_input('🎹 f1 number (鍵盤番号)', 0, len(kenban_list)-1, 40)
+number_f2 = st.number_input('🎹 f2 number', 0, len(kenban_list)-1, 44)
+number_f3 = st.number_input('🎹 f3 number', 0, len(kenban_list)-1, 47)
 
-v1 = st.number_input('v1', 0.0)
-v2 = st.number_input('v2', 0.0)
-v3 = st.number_input('v3', 0.0)
+v1 = st.number_input('🔊 v1（音量比1）', 0.0, 1.0, 0.33)
+v2 = st.number_input('🔊 v2（音量比2）', 0.0, 1.0, 0.33)
+v3 = st.number_input('🔊 v3（音量比3）', 0.0, 1.0, 0.34)
 
-I_num_name = st.radio('which types', ['I_0', 'I_1', 'I_2'])
-S_num_name = st.radio('which types', ['S_0', 'S_1'])
-lam =  st.slider('小数を選んでください', 0.0, 10.0, 0.5, 0.1)
+I_num_name = st.radio('📐 不安定度 I の計算方法', ['I_0', 'I_1', 'I_2'])
+S_num_name = st.radio('🧘 安定度 S の計算方法', ['S_0', 'S_1'])
+lam = st.slider('📏 λ (重み係数)', 0.0, 10.0, 0.5, 0.1)
 
 I_num = I_function_map[I_num_name]
 S_num = S_function_map[S_num_name]
 
- #定数
-a=0.7
-b=1.4
-c=4.0
-d=1.33
-e=0.6
-h=1.56
-g=0.88
-N = 5   #倍音数
-
-if st.button("DTMISを計算"):
-    f1 = kenban_list[number_f1]
-    f2 = kenban_list[number_f2]
-    f3 = kenban_list[number_f3]
-
-    Da = D(f1,f2,f3,v1,v2,v3,N,a,b,c,d,g)
-    Ta = TM(f1,f2,f3,v1,v2,v3,N,e,h,g)[0]
-    Ma = TM(f1,f2,f3,v1,v2,v3,N,e,h,g)[1]
-    Ia = I_num(Da,Ta,lam)
-    Sa = S_num(Da,Ta,Ma)
-
-    st.markdown(f"""
-    ###  計算結果
-    - **D（不協和度）**: `{Da:.4f}`
-    - **T（緊張度）**: `{Ta:.4f}`
-    - **M（モダリティ）**: `{Ma:.4f}`
-    - **I（不安定度）**: `{Ia:.4f}`
-    - **S（安定度）**: `{Sa:.4f}`
-    """)
-
-
+# ----- スタイル -----
 st.markdown(
     """
     <style>
     .result-box {
         background-color: #f0f9ff;
-        padding: 1em;
+        padding: 1.5em;
         border-radius: 12px;
         border: 1px solid #d3e0ea;
-        box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.08);
+        margin-top: 20px;
     }
     .metric-title {
         font-size: 20px;
         font-weight: bold;
         color: #006699;
+        margin-top: 10px;
     }
     .metric-value {
-        font-size: 24px;
+        font-size: 28px;
         font-weight: bold;
         color: #003366;
     }
@@ -263,26 +236,35 @@ st.markdown(
     """, unsafe_allow_html=True
 )
 
-st.markdown("## 🎼 DTMIS 計算結果")
+# ----- 計算 -----
+if st.button("🧮 DTMISを計算"):
+    f1 = kenban_list[int(number_f1)]
+    f2 = kenban_list[int(number_f2)]
+    f3 = kenban_list[int(number_f3)]
 
-st.markdown(
-    f"""
-    <div class='result-box'>
-        <div class='metric-title'>🔻 不協和度 D</div>
-        <div class='metric-value'>{Da:.4f}</div>
-        <br>
-        <div class='metric-title'>⚡ 緊張度 T</div>
-        <div class='metric-value'>{Ta:.4f}</div>
-        <br>
-        <div class='metric-title'>🔄 モダリティ M</div>
-        <div class='metric-value'>{Ma:.4f}</div>
-        <br>
-        <div class='metric-title'>🔥 不安定度 I</div>
-        <div class='metric-value'>{Ia:.4f}</div>
-        <br>
-        <div class='metric-title'>🧘 安定度 S</div>
-        <div class='metric-value'>{Sa:.4f}</div>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+    Da = D(f1, f2, f3, v1, v2, v3, N, a, b, c, d, g)
+    Ta, Ma = TM(f1, f2, f3, v1, v2, v3, N, e, h, g)
+    Ia = I_num(Da, Ta, lam)
+    Sa = S_num(Da, Ta, Ma)
+
+    st.markdown(
+        f"""
+        <div class='result-box'>
+            <div class='metric-title'>🔻 不協和度 D</div>
+            <div class='metric-value'>{Da:.4f}</div>
+
+            <div class='metric-title'>⚡ 緊張度 T</div>
+            <div class='metric-value'>{Ta:.4f}</div>
+
+            <div class='metric-title'>🔄 モダリティ M</div>
+            <div class='metric-value'>{Ma:.4f}</div>
+
+            <div class='metric-title'>🔥 不安定度 I</div>
+            <div class='metric-value'>{Ia:.4f}</div>
+
+            <div class='metric-title'>🧘 安定度 S</div>
+            <div class='metric-value'>{Sa:.4f}</div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
