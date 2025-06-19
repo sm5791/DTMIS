@@ -237,3 +237,52 @@ if st.button("DTMISを計算"):
     - **I（不安定度）**: `{Ia:.4f}`
     - **S（安定度）**: `{Sa:.4f}`
     """)
+
+
+st.markdown(
+    """
+    <style>
+    .result-box {
+        background-color: #f0f9ff;
+        padding: 1em;
+        border-radius: 12px;
+        border: 1px solid #d3e0ea;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+    }
+    .metric-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #006699;
+    }
+    .metric-value {
+        font-size: 24px;
+        font-weight: bold;
+        color: #003366;
+    }
+    </style>
+    """, unsafe_allow_html=True
+)
+
+st.markdown("## 🎼 DTMIS 計算結果")
+
+st.markdown(
+    f"""
+    <div class='result-box'>
+        <div class='metric-title'>🔻 不協和度 D</div>
+        <div class='metric-value'>{Da:.4f}</div>
+        <br>
+        <div class='metric-title'>⚡ 緊張度 T</div>
+        <div class='metric-value'>{Ta:.4f}</div>
+        <br>
+        <div class='metric-title'>🔄 モダリティ M</div>
+        <div class='metric-value'>{Ma:.4f}</div>
+        <br>
+        <div class='metric-title'>🔥 不安定度 I</div>
+        <div class='metric-value'>{Ia:.4f}</div>
+        <br>
+        <div class='metric-title'>🧘 安定度 S</div>
+        <div class='metric-value'>{Sa:.4f}</div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
