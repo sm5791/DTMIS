@@ -65,3 +65,19 @@ inputText_B = st.text_input(label='Please input text', value='aaa')
 
 # テキストエリアも使い方は同様
 inputArea = st.text_area('Please input any strings', 'Place holder')
+
+# ファイルのアップロード
+f = st.file_uploader('Upload image file')
+
+# 先頭４バイト（マジックナンバー）を取得
+b = f.read(4)
+
+# マジックナンバーが jpg だった場合
+if f and b == b'\xff\xd8\xff\xe0':
+    # ファイルを画像として表示（f.name でファイル名を取得）
+    st.image(f, caption=f.name, width=100)
+
+    # ファイルの内容を書き込み（元がバイトデータなので read で読み込み）
+    with open(f'new_{f.name}', 'wb') as file:
+        file.write(f.read())
+
