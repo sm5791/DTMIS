@@ -214,7 +214,7 @@ v3 = st.number_input('v3', 1.0)
 
 I_num_name = st.radio('which types', ['I_0', 'I_1', 'I_2'])
 S_num_name = st.radio('which types', ['S_0', 'S_1'])
-lam =  st.slider('小数を選んでください', 0.0, 10.0, 0.5, 0.1)
+lam =  st.slider('小数を選んでください', 0.0, 10.0, 1.0, 0.1)
 
 I_num = I_function_map[I_num_name]
 S_num = S_function_map[S_num_name]
