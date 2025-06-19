@@ -15,4 +15,4 @@ b = st.number_input("2つ目の数", value=0)
 if st.button("計算"):
     st.success(f"結果: {a} + {b} = {a + b}")
 
-st.text("sex")
+st.title("sex")
