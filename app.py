@@ -216,8 +216,8 @@ if st.button("データを表示"):
     Da = D(f1,f2,f3,v1,v2,v3,N,a,b,c,d,g)
     Ta = TM(f1,f2,f3,v1,v2,v3,N,e,h,g)[0]
     Ma = TM(f1,f2,f3,v1,v2,v3,N,e,h,g)[1]
-    Ia = I_num(Da,Ta,lam)
-    Sa = S_num(Da,Ta,Ma)
+    Ia = {I_num}(Da,Ta,lam)
+    Sa = {S_num}(Da,Ta,Ma)
 
     st.text(Da,Ta,Ma,Ia,Sa)
 
