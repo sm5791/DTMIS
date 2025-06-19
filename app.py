@@ -68,3 +68,5 @@ inputText_B = st.text_input(label='Please input text', value='aaa')
 inputArea = st.text_area('Please input any strings', 'Place holder')
 
 
+st.sidebar.title('Control panel')
+st.sidebar.button('Reload button')
