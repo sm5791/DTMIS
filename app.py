@@ -34,3 +34,10 @@ if flgCheck_A:
     st.text('Checkbox A has checked')
 if flgCheck_B:
     st.text('Checkbox B has checked')
+
+selected_item = st.radio(
+        'which Animal do you like?',
+        ['Dog', 'Cat']
+    )
+
+st.text(selected_item)
