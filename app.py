@@ -8,10 +8,15 @@ Original file is located at
 """
 
 import streamlit as st
+import numpy as np
+import pandas as pd
 
-st.success("🔢 足し算アプリ")
-a = st.number_input("1つ目の数", value=0)
-b = st.number_input("2つ目の数", value=0)
-if st.button("計算"):
-    st.success(f"結果: {a} + {b} = {a + b}")
+data = {
+    'x': np.random.random(20),
+    'y': np.random.random(20) - 0.5,
+    'z': np.random.random(20) - 1.0,
+    }
+df = pd.DataFrame(data)
 
+st.dataframe(df)
+st.table(df)
