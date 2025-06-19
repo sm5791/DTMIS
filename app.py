@@ -41,3 +41,13 @@ selected_item = st.radio(
     )
 
 st.text(selected_item)
+
+selected_item = st.selectbox('Select item', ['A', 'B', 'C'])
+
+st.text(selected_item)
+
+# デフォルト値を設定する場合は index オプションを設定する。
+selected_item = st.selectbox('Select item', ['A', 'B', 'C'], index=1)
+
+# 初期値が 1 なので B が表示される。
+st.text(selected_item)
