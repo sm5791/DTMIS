@@ -204,9 +204,9 @@ N = 5   #倍音数
 
 st.title("DTMIS計算サイトここに爆誕")
 
-number_f1 = st.number_input('f1 number', 0 , value = 39)
-number_f2 = st.number_input('f2 number', 0 , value = 43)
-number_f3 = st.number_input('f3 number', 0 , value = 46)
+number_f1 = st.number_input('f1 number', 39)
+number_f2 = st.number_input('f2 number', 0)
+number_f3 = st.number_input('f3 number', 0)
 
 v1 = st.number_input('v1', 0.0 , value = 1)
 v2 = st.number_input('v2', 0.0 , value = 1)
