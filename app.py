@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-
+import pandas as pd
 
 
 #ピアノの鍵盤に対応した周波数のリストを作成
