@@ -230,5 +230,5 @@ if st.button("データを表示"):
     Ia = I_num(Da,Ta,lam)
     Sa = S_num(Da,Ta,Ma)
 
-    st.text(Da,Ta,Ma,Ia,Sa)
+    st.write(f"D: {Da}, T: {Ta}, M: {Ma}, I: {Ia}, S: {Sa}")
 
