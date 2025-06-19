@@ -152,6 +152,16 @@ def S_1(D,T,M):
     S = np.array(np.abs(M)) / np.sqrt(D ** 2 + T ** 2)
     return S
 
+I_function_map = {
+    'I_0': I_0,
+    'I_1': I_1,
+    'I_2': I_2
+}
+S_function_map = {
+    'S_0': S_0,
+    'S_1': S_1
+}
+
 #lamに対して、Ｉの最小値と、そのときの音量比の組み合わせを計算するモジュール
 def lam_min(f1,f2,f3,lam,I_num,S_num):
     D_list = []
@@ -201,11 +211,12 @@ v1 = st.number_input('v1', 0.0)
 v2 = st.number_input('v2', 0.0)
 v3 = st.number_input('v3', 0.0)
 
-I_num = st.radio('which types',['I_0', 'I_1', 'I_2'])
-S_num = st.radio('which types',['S_0', 'S_1'])
+I_num_name = st.radio('which types', ['I_0', 'I_1', 'I_2'])
+S_num_name = st.radio('which types', ['S_0', 'S_1'])
 lam = st.slider(label='lam', min_value=0, max_value=10, value=5)
 
-
+I_num = I_function_map[I_num_name]
+S_num = S_function_map[S_num_name]
 
 
 if st.button("データを表示"):
@@ -216,8 +227,8 @@ if st.button("データを表示"):
     Da = D(f1,f2,f3,v1,v2,v3,N,a,b,c,d,g)
     Ta = TM(f1,f2,f3,v1,v2,v3,N,e,h,g)[0]
     Ma = TM(f1,f2,f3,v1,v2,v3,N,e,h,g)[1]
-    Ia = {I_num}(Da,Ta,lam)
-    Sa = {S_num}(Da,Ta,Ma)
+    Ia = I_num(Da,Ta,lam)
+    Sa = S_num(Da,Ta,Ma)
 
     st.text(Da,Ta,Ma,Ia,Sa)
 
