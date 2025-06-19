@@ -58,16 +58,10 @@ st.text(age)
 age = st.slider(label='Your Age', min_value=0, max_value=130, value=(20, 30))
 st.text(age)
 
-date = st.date_input('Input date')
+inputText_A = st.text_input('Input any words')
 
-# 入力の最大値・最小値指定も可能
-date = st.date_input('Input date',
-                      min_value=date(1900, 1, 1),
-                      max_value=date.today(),
-                      value=date(2000, 1, 1)
-                    )
+# 初期値を指定することも可能
+inputText_B = st.text_input(label='Please input text', value='aaa')
 
-st.write('Birthday: ', birthday)
-
-# 時間入力
-time = st.time_input('Input time')
+# テキストエリアも使い方は同様
+inputArea = st.text_area('Please input any strings', 'Place holder')
