@@ -191,7 +191,43 @@ def export_csv(hyo, name):
     hyo.to_csv(filename, index=False, encoding="utf-8-sig")
 
 
+########スタート#########
+
+number_f1 = st.number_input('f1 number', 0)
+number_f2 = st.number_input('f2 number', 0)
+number_f3 = st.number_input('f3 number', 0)
+
+v1 = st.number_input('Input any number', 0.0)
+v2 = st.number_input('Input any number', 0.0)
+v3 = st.number_input('Input any number', 0.0)
+
+I_num = st.radio('which types',['I_0', 'I_1', 'I_2'])
+S_num = st.radio('which types',['S_0', 'S_1'])
+lam = st.slider(label='lam', min_value=0, max_value=10, value=5)
+
+D_list = []
+T_list = []
+M_list = []
+I_list = []
+S_list = []
+
+for i in range(len(C_chord_list)):
+
+  f1 = C_chord_list[i][0]
+  f2 = C_chord_list[i][1]
+  f3 = C_chord_list[i][2]
+
+  Da = D(f1,f2,f3,v1,v2,v3,N,a,b,c,d,g)
+  Ta = TM(f1,f2,f3,v1,v2,v3,N,e,h,g)[0]
+  Ma = TM(f1,f2,f3,v1,v2,v3,N,e,h,g)[1]
+  Ia = I_num(Da,Ta,lam)
+  Sa = S_num(Da,Ta,Ma)
+
+  D_list.append(Da)
+  T_list.append(Ta)
+  M_list.append(Ma)
+  I_list.append(Ia)
+  S_list.append(Sa)
 
 
 
-st.text(I_0(0.5,0.5,4))
