@@ -204,13 +204,13 @@ N = 5   #倍音数
 
 st.title("DTMIS計算サイトここに爆誕")
 
-number_f1 = st.number_input('f1 number', 0)
-number_f2 = st.number_input('f2 number', 0)
-number_f3 = st.number_input('f3 number', 0)
+number_f1 = st.number_input('f1 number', 0 , value = 39)
+number_f2 = st.number_input('f2 number', 0 , value = 43)
+number_f3 = st.number_input('f3 number', 0 , value = 46)
 
-v1 = st.number_input('v1', 0.0)
-v2 = st.number_input('v2', 0.0)
-v3 = st.number_input('v3', 0.0)
+v1 = st.number_input('v1', 0.0 , value = 1)
+v2 = st.number_input('v2', 0.0 , value = 1)
+v3 = st.number_input('v3', 0.0 , value = 1)
 
 I_num_name = st.radio('which types', ['I_0', 'I_1', 'I_2'])
 S_num_name = st.radio('which types', ['S_0', 'S_1'])
