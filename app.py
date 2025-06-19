@@ -273,4 +273,4 @@ if st.button("DTMISを計算"):
             Hyolist[i].append(S_list[i])
         hyo = pd.DataFrame(Hyolist)
         hyo.columns = ['lam','v1','v2','v3','D','T','M','I','S']
-        print(hyo)
+        hyo
