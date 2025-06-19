@@ -8,65 +8,9 @@ Original file is located at
 """
 
 import streamlit as st
+import matplotlib.pyplot as plt
+import math
 import numpy as np
 import pandas as pd
 
 
-data = {
-    'x': np.random.random(20),
-    'y': np.random.random(20) - 0.5,
-    'z': np.random.random(20) - 1.0,
-    }
-df = pd.DataFrame(data)
-
-st.dataframe(df)
-st.table(df)
-
-button_value_A = st.button('Push me!', key=1)
-
-button_value_B = st.button('Push me!', key='second')
-
-flgCheck_A = st.checkbox('Checkbox A')
-flgCheck_B = st.checkbox('Checkbox B')
-
-# チェックボックスのイベントは並列して発生する可能性があるため、
-# elif を使用すろとイベントのキャッチ漏れに繋がる。
-if flgCheck_A:
-    st.text('Checkbox A has checked')
-if flgCheck_B:
-    st.text('Checkbox B has checked')
-
-selected_item = st.radio(
-        'which Animal do you like?',
-        ['Dog', 'Cat']
-    )
-
-st.text(selected_item)
-
-selected_item = st.selectbox('Select item', ['A', 'B', 'C'])
-
-st.text(selected_item)
-
-# デフォルト値を設定する場合は index オプションを設定する。
-selected_item = st.selectbox('Select item', ['A', 'B', 'C'], index=1)
-
-# 初期値が 1 なので B が表示される。
-st.text(selected_item)
-
-age = st.slider(label='Your Age', min_value=0, max_value=130, value=20)
-st.text(age)
-# ２つの値を指定し、レンジを取得する。戻り値は２つの値を持つタプル型
-age = st.slider(label='Your Age', min_value=0, max_value=130, value=(20, 30))
-st.text(age)
-
-inputText_A = st.text_input('Input any words')
-
-# 初期値を指定することも可能
-inputText_B = st.text_input(label='Please input text', value='aaa')
-
-# テキストエリアも使い方は同様
-inputArea = st.text_area('Please input any strings', 'Place holder')
-
-
-st.sidebar.title('Control panel')
-st.sidebar.button('Reload button')
