@@ -57,3 +57,17 @@ st.text(age)
 # ２つの値を指定し、レンジを取得する。戻り値は２つの値を持つタプル型
 age = st.slider(label='Your Age', min_value=0, max_value=130, value=(20, 30))
 st.text(age)
+
+date = st.date_input('Input date')
+
+# 入力の最大値・最小値指定も可能
+date = st.date_input('Input date',
+                      min_value=date(1900, 1, 1),
+                      max_value=date.today(),
+                      value=date(2000, 1, 1)
+                    )
+
+st.write('Birthday: ', birthday)
+
+# 時間入力
+time = st.time_input('Input time')
