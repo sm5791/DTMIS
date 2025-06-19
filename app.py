@@ -189,3 +189,9 @@ def export_csv(hyo, name):
     now_str = jst_now.strftime("%Y%m%d_%H%M%S")
     filename = f"{name}_{now_str}.csv"
     hyo.to_csv(filename, index=False, encoding="utf-8-sig")
+
+
+
+
+
+st.text(I_0(0.5,0.5,4))
