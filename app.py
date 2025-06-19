@@ -20,3 +20,7 @@ df = pd.DataFrame(data)
 
 st.dataframe(df)
 st.table(df)
+
+button_value_A = st.button('Push me!')
+
+button_value_B = st.button('Push me!')
