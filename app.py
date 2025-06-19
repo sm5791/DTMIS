@@ -53,6 +53,7 @@ selected_item = st.selectbox('Select item', ['A', 'B', 'C'], index=1)
 st.text(selected_item)
 
 age = st.slider(label='Your Age', min_value=0, max_value=130, value=20)
-
+st.text(age)
 # ２つの値を指定し、レンジを取得する。戻り値は２つの値を持つタプル型
 age = st.slider(label='Your Age', min_value=0, max_value=130, value=(20, 30))
+st.text(age)
