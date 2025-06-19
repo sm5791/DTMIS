@@ -238,3 +238,39 @@ if st.button("DTMISを計算"):
     - **S（安定度）**: `{Sa:.4f}`
     """)
 
+    for lam in range(0,11):
+        I_num = I_1
+        S_num = S_1
+        D_list = []
+        T_list = []
+        M_list = []
+        I_list = []
+        S_list = []
+
+        for i in range(len(v_com)):
+            Da = D(f1,f2,f3,v_com[i][0],v_com[i][1],v_com[i][2],N,a,b,c,d,g)
+            Ta = TM(f1,f2,f3,v_com[i][0],v_com[i][1],v_com[i][2],N,e,h,g)[0]
+            Ma = TM(f1,f2,f3,v_com[i][0],v_com[i][1],v_com[i][2],N,e,h,g)[1]
+            Ia = I_num(Da,Ta,lam)
+            Sa = S_num(Da,Ta,Ma)
+
+            D_list.append(Da)
+            T_list.append(Ta)
+            M_list.append(Ma)
+            I_list.append(Ia)
+            S_list.append(Sa)
+
+        Hyolist = [[] for _ in range(len(v_com))]
+        for i in range(len(v_com)):
+            Hyolist[i].append(lam)
+            Hyolist[i].append(v_com[i][0])
+            Hyolist[i].append(v_com[i][1])
+            Hyolist[i].append(v_com[i][2])
+            Hyolist[i].append(D_list[i])
+            Hyolist[i].append(T_list[i])
+            Hyolist[i].append(M_list[i])
+            Hyolist[i].append(I_list[i])
+            Hyolist[i].append(S_list[i])
+        hyo = pd.DataFrame(Hyolist)
+        hyo.columns = ['lam','v1','v2','v3','D','T','M','I','S']
+        print(hyo)
