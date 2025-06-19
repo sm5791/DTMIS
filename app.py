@@ -204,9 +204,9 @@ N = 5   #倍音数
 
 st.title("DTMIS計算サイトここに爆誕")
 
-number_f1 = st.number_input('f1 number', 39)
-number_f2 = st.number_input('f2 number', 43)
-number_f3 = st.number_input('f3 number', 46)
+number_f1 = st.number_input('f1', 39)
+number_f2 = st.number_input('f2', 43)
+number_f3 = st.number_input('f3', 46)
 
 v1 = st.number_input('v1', 1.0)
 v2 = st.number_input('v2', 1.0)
@@ -214,7 +214,7 @@ v3 = st.number_input('v3', 1.0)
 
 I_num_name = st.radio('which types', ['I_0', 'I_1', 'I_2'])
 S_num_name = st.radio('which types', ['S_0', 'S_1'])
-lam =  st.slider('小数を選んでください', 0.0, 10.0, 1.0, 0.1)
+lam =  st.slider('lam', 0.0, 10.0, 1.0, 0.1)
 
 I_num = I_function_map[I_num_name]
 S_num = S_function_map[S_num_name]
