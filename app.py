@@ -191,6 +191,17 @@ def export_csv(hyo, name):
 
 
 ########スタート#########
+
+ #定数
+a=0.7
+b=1.4
+c=4.0
+d=1.33
+e=0.6
+h=1.56
+g=0.88
+N = 5   #倍音数
+
 st.set_page_config(page_title="DTMIS計算", layout="centered")
 st.title("🎼 DTMIS計算サイトここに爆誕")
 
