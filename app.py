@@ -1,9 +1,6 @@
 import streamlit as st
 import numpy as np
 
-st.title("s")
-
-
  #定数
 a=0.7
 b=1.4
@@ -202,6 +199,7 @@ def export_csv(hyo, name):
 
 
 ########スタート#########
+st.title("DTMISを計算するサイトここに爆誕")
 
 number_f1 = st.number_input('f1 number', 0)
 number_f2 = st.number_input('f2 number', 0)
